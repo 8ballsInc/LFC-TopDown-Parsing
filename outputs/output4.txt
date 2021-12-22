@@ -1,0 +1,189 @@
+/* Output del file inputs/input4.txt */
+
+--- Grammatica di partenza --- 
+Produzione: S->aA
+Produzione: A->BA
+Produzione: A->#
+Produzione: B->DdC
+Produzione: C->dC
+Produzione: C->#
+Produzione: D->zE
+Produzione: E->#
+Produzione: E->Sa
+
+--- Parola da verificare ---
+[ a  z  d  z  a  a  d  d  $ ]
+
+--- Calcolo First ---
+Firsts S [a ,]
+Firsts E [# ,a ,]
+Firsts D [z ,]
+Firsts C [# ,d ,]
+Firsts B [z ,]
+Firsts A [# ,z ,]
+
+--- Calcolo Follow ---
+Follow A[$ ,a ,]
+Follow B[$ ,a ,z ,]
+Follow C[$ ,a ,z ,]
+Follow D[d ,]
+Follow E[d ,]
+Follow S[$ ,a ,]
+
+--- Tabella di Parsing ---
+M[A,a]=A->#
+M[A,z]=A->BA
+M[A,$]=A->#
+M[B,z]=B->DdC
+M[C,a]=C->#
+M[C,d]=C->dC
+M[C,z]=C->#
+M[C,$]=C->#
+M[D,z]=D->zE
+M[E,a]=E->Sa
+M[E,d]=E->#
+M[S,a]=S->aA
+
+--- Passi di Parsing ---
+1:
+Nonterminal stack: [ S  $ ]
+Input stack: [ a  z  d  z  a  a  d  d  $ ]
+Esegui la produzione: S->aA
+
+2:
+Nonterminal stack: [ a  A  $ ]
+Input stack: [ a  z  d  z  a  a  d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+3:
+Nonterminal stack: [ A  $ ]
+Input stack: [ z  d  z  a  a  d  d  $ ]
+Esegui la produzione: A->BA
+
+4:
+Nonterminal stack: [ B  A  $ ]
+Input stack: [ z  d  z  a  a  d  d  $ ]
+Esegui la produzione: B->DdC
+
+5:
+Nonterminal stack: [ D  d  C  A  $ ]
+Input stack: [ z  d  z  a  a  d  d  $ ]
+Esegui la produzione: D->zE
+
+6:
+Nonterminal stack: [ z  E  d  C  A  $ ]
+Input stack: [ z  d  z  a  a  d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+7:
+Nonterminal stack: [ E  d  C  A  $ ]
+Input stack: [ d  z  a  a  d  d  $ ]
+Esegui la produzione: E->#
+
+8:
+Nonterminal stack: [ #  d  C  A  $ ]
+Input stack: [ d  z  a  a  d  d  $ ]
+Esegui pop della testa dei non terminali: epsilon trovato
+
+9:
+Nonterminal stack: [ d  C  A  $ ]
+Input stack: [ d  z  a  a  d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+10:
+Nonterminal stack: [ C  A  $ ]
+Input stack: [ z  a  a  d  d  $ ]
+Esegui la produzione: C->#
+
+11:
+Nonterminal stack: [ #  A  $ ]
+Input stack: [ z  a  a  d  d  $ ]
+Esegui pop della testa dei non terminali: epsilon trovato
+
+12:
+Nonterminal stack: [ A  $ ]
+Input stack: [ z  a  a  d  d  $ ]
+Esegui la produzione: A->BA
+
+13:
+Nonterminal stack: [ B  A  $ ]
+Input stack: [ z  a  a  d  d  $ ]
+Esegui la produzione: B->DdC
+
+14:
+Nonterminal stack: [ D  d  C  A  $ ]
+Input stack: [ z  a  a  d  d  $ ]
+Esegui la produzione: D->zE
+
+15:
+Nonterminal stack: [ z  E  d  C  A  $ ]
+Input stack: [ z  a  a  d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+16:
+Nonterminal stack: [ E  d  C  A  $ ]
+Input stack: [ a  a  d  d  $ ]
+Esegui la produzione: E->Sa
+
+17:
+Nonterminal stack: [ S  a  d  C  A  $ ]
+Input stack: [ a  a  d  d  $ ]
+Esegui la produzione: S->aA
+
+18:
+Nonterminal stack: [ a  A  a  d  C  A  $ ]
+Input stack: [ a  a  d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+19:
+Nonterminal stack: [ A  a  d  C  A  $ ]
+Input stack: [ a  d  d  $ ]
+Esegui la produzione: A->#
+
+20:
+Nonterminal stack: [ #  a  d  C  A  $ ]
+Input stack: [ a  d  d  $ ]
+Esegui pop della testa dei non terminali: epsilon trovato
+
+21:
+Nonterminal stack: [ a  d  C  A  $ ]
+Input stack: [ a  d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+22:
+Nonterminal stack: [ d  C  A  $ ]
+Input stack: [ d  d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+23:
+Nonterminal stack: [ C  A  $ ]
+Input stack: [ d  $ ]
+Esegui la produzione: C->dC
+
+24:
+Nonterminal stack: [ d  C  A  $ ]
+Input stack: [ d  $ ]
+Match tra stack dei terminali e non terminali. Esegui il pop di entrambi
+
+25:
+Nonterminal stack: [ C  A  $ ]
+Input stack: [ $ ]
+Esegui la produzione: C->#
+
+26:
+Nonterminal stack: [ #  A  $ ]
+Input stack: [ $ ]
+Esegui pop della testa dei non terminali: epsilon trovato
+
+27:
+Nonterminal stack: [ A  $ ]
+Input stack: [ $ ]
+Esegui la produzione: A->#
+
+28:
+Nonterminal stack: [ #  $ ]
+Input stack: [ $ ]
+Esegui pop della testa dei non terminali: epsilon trovato
+
+--- Risultato --- 
+ACCEPT

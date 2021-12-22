@@ -1,0 +1,7 @@
+8
+d+dd++d
+E>TA
+A>+TA|#
+T>FB
+B>*FB|#
+F>(E)|d

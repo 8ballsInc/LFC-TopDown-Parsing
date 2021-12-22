@@ -1,0 +1,52 @@
+/* Output del file inputs/input5.txt */
+
+--- Grammatica di partenza --- 
+Produzione: S->aA
+Produzione: A->BA
+Produzione: A->#
+Produzione: B->DdC
+Produzione: C->dC
+Produzione: C->#
+Produzione: D->zE
+Produzione: E->#
+Produzione: E->Sa
+
+--- Parola da verificare ---
+[ z  d  z  a  $ ]
+
+--- Calcolo First ---
+Firsts S [a ,]
+Firsts E [# ,a ,]
+Firsts D [z ,]
+Firsts C [# ,d ,]
+Firsts B [z ,]
+Firsts A [# ,z ,]
+
+--- Calcolo Follow ---
+Follow A[$ ,a ,]
+Follow B[$ ,a ,z ,]
+Follow C[$ ,a ,z ,]
+Follow D[d ,]
+Follow E[d ,]
+Follow S[$ ,a ,]
+
+--- Tabella di Parsing ---
+M[A,a]=A->#
+M[A,z]=A->BA
+M[A,$]=A->#
+M[B,z]=B->DdC
+M[C,a]=C->#
+M[C,d]=C->dC
+M[C,z]=C->#
+M[C,$]=C->#
+M[D,z]=D->zE
+M[E,a]=E->Sa
+M[E,d]=E->#
+M[S,a]=S->aA
+
+--- Passi di Parsing ---
+1:
+Nonterminal stack: [ S  $ ]
+Input stack: [ z  d  z  a  $ ]
+--- Risultato --- 
+ERRORE, la parola non appartiene al linguaggio

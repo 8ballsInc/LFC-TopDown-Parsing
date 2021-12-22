@@ -1,0 +1,22 @@
+/* Output del file inputs/input3.txt */
+
+--- Grammatica di partenza --- 
+Produzione: E->(E)A
+Produzione: E->dA
+Produzione: A->+EA
+Produzione: A->*EA
+Produzione: A->#
+
+--- Parola da verificare ---
+[ d  +  d  *  d  $ ]
+
+--- Calcolo First ---
+Firsts E [( ,d ,]
+Firsts A [# ,* ,+ ,]
+
+--- Calcolo Follow ---
+Follow A[$ ,) ,* ,+ ,]
+Follow E[$ ,) ,* ,+ ,]
+
+--- Risultato --- 
+Il linguaggio non è LL(1), conflitto nella tabella di parsing

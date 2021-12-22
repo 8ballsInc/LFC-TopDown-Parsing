@@ -1,0 +1,8 @@
+10
+zdza
+S>aA
+A>BA|#
+B>DdC
+C>dC|#
+D>zE
+E>#|Sa
